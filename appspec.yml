@@ -31,6 +31,11 @@ permissions:
     mode: 644
     type:
       - file
+  - object: /home/ec2-user/run.py
+    owner: ec2-user
+    mode: 644
+    type:
+      - file
 hooks:
   AfterInstall:
     - location: scripts/install_dependencies
