@@ -30,3 +30,6 @@ artifacts:
     - 'requirements.txt'
     - 'supervisord.conf'
     - 'template-configuration.json'
+    - 'run.py'
+    - 'slackbot_settings.py'
+    - 'plugins/**/*'
