@@ -1,5 +1,8 @@
 version: 0.2
 
+env:
+  parameter-store:
+    SLACK_TOKEN: 'slackapp_bot_token'
 phases:
   install:
     commands:
