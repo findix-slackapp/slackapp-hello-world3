@@ -1,3 +1,6 @@
+ZONE=$(curl 169.254.169.254/latest/meta-data/placement/availability-zone)
+REGION=$(echo ${ZONE/%?/})
+export SLACK_TOKEN=$(aws --region ${REGION} ssm get-parameters --name slackapp_bot_token --with-decryption --query "Parameters[0].Value" --output text)
 cd /home/ec2-user
 source environment/bin/activate
 python manage.py collectstatic --noinput
