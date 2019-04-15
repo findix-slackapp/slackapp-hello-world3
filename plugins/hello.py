@@ -19,11 +19,11 @@ from slackbot.bot import default_reply  # 該当する応答がない場合に�
 # message.send('string')    string を送信
 # message.react('icon_emoji')  発言者のメッセージにリアクション(スタンプ)する
 #                               文字列中に':'はいらない
-@respond_to('Hi')
+@respond_to('.*')
 def mention_func(message):
     message.reply('Hello World!') # メンション
 
-@listen_to('Hello World!')
-def listen_func(message):
-    message.send('Hi') # ただの投稿
-    message.reply('Are you？')   # メンション
+# @listen_to('Hello World!')
+# def listen_func(message):
+#     message.send('Hi') # ただの投稿
+#     message.reply('Are you？')   # メンション
