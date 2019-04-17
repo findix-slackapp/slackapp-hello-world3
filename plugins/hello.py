@@ -23,7 +23,7 @@ from slackbot.bot import default_reply  # 該当する応答がない場合に�
 def mention_func(message):
     message.reply('Hello World!') # メンション
 
-# @listen_to('Hello World!')
-# def listen_func(message):
-#     message.send('Hi') # ただの投稿
-#     message.reply('Are you？')   # メンション
+@listen_to('Hello World!')
+def listen_func(message):
+    message.send('Hi') # ただの投稿
+    message.reply('Are you？')   # メンション
