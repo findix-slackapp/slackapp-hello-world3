@@ -2,6 +2,7 @@ from django.test import TestCase, RequestFactory
 from helloworld.views import HomePageView
 from unittest import mock
 import slackbot.dispatcher
+import plugins.hello
 
 class HelloWorldTestCase(TestCase):
 
@@ -15,13 +16,20 @@ class HelloWorldTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Congratulations')
 
-    def test_slackbot(self):
-        my_mock = mock.Mock()
+    def test_mention_func_hello_world(self):
+        body = {'text': 'hi'}
         excepted = 'Hello World!'
+        self.assert_called_massage_reply(body, excepted)
 
-        with mock.patch('slackbot.dispatcher', my_mock):
-            import plugins.hello
-            message = slackbot.dispatcher.Message(None, None)
-            plugins.hello.mention_func(message)
+    def test_mention_func_greeting(self):
+        body = {'text': 'おはよう'}
+        excepted = 'おはようございます:smile:'
+        self.assert_called_massage_reply(body, excepted)
 
-        my_mock.Message(None, None).reply.assert_called_with(excepted)
+    def assert_called_massage_reply(self, body, excepted):
+        message = slackbot.dispatcher.Message(None, body)
+        message.reply = mock.MagicMock()
+        plugins.hello.mention_func(message)
+
+        message.reply.assert_called_with(excepted)
+

@@ -3,6 +3,7 @@
 from slackbot.bot import respond_to     # @botname: で反応するデコーダ
 from slackbot.bot import listen_to      # チャネル内発言で反応するデコーダ
 from slackbot.bot import default_reply  # 該当する応答がない場合に反応するデコーダ
+import re
 
 # @respond_to('string')     bot宛のメッセージ
 #                           stringは正規表現が可能 「r'string'」
@@ -21,7 +22,11 @@ from slackbot.bot import default_reply  # 該当する応答がない場合に�
 #                               文字列中に':'はいらない
 @respond_to('.*')
 def mention_func(message):
-    message.reply('Hello World!') # メンション
+    m = re.match(r"^\S*おはよう\S*$", message.body['text'])
+    if m:
+        message.reply('おはようございます:smile:') # メンション
+    else:
+        message.reply('Hello World!') # メンション
 
 @listen_to('Hello World!')
 def listen_func(message):
