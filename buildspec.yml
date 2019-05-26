@@ -33,3 +33,4 @@ artifacts:
     - 'run.py'
     - 'slackbot_settings.py'
     - 'plugins/**/*'
+    - 'godd_morning.py'

@@ -19,6 +19,8 @@ files:
    destination: /home/ec2-user
  - source: /plugins/
    destination: /home/ec2-user/plugins
+ - source: /godd_morning.py
+   destination: /home/ec2-user
 
 permissions:
   - object: /home/ec2-user/manage.py
