@@ -3,6 +3,7 @@ from helloworld.views import HomePageView
 from unittest import mock
 import slackbot.dispatcher
 import plugins.hello
+from godd_morning import GoodMornig
 
 class HelloWorldTestCase(TestCase):
 
@@ -33,3 +34,11 @@ class HelloWorldTestCase(TestCase):
 
         message.reply.assert_called_with(excepted)
 
+    def test_good_morning_postMessage(self):
+        gm = GoodMornig()
+        client = gm.client
+        client.chat_postMessage = mock.MagicMock()
+        channels = gm.belongChannelList()
+        gm.postMessage(channels)
+
+        client.chat_postMessage.assert_called_with(channel="CHXS0FH5M",text="おはようございます")

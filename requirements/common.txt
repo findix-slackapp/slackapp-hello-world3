@@ -2,3 +2,5 @@
 Django==1.11.20
 slackbot
 boto3
+schedule
+slackclient
