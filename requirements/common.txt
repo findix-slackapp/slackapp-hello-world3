@@ -4,3 +4,4 @@ slackbot
 boto3
 schedule
 slackclient
+aiohttp
