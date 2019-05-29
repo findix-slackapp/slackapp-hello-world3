@@ -5,12 +5,16 @@ import threading
 import schedule
 import time
 from godd_morning import GoodMornig
+import jpholiday
+import datetime
 
 def main():
     bot = Bot()
     bot.run()
 
 def goodMorning():
+    if jpholiday.is_holiday(datetime.date.today()):
+        return
     gm = GoodMornig()
     channels = gm.belongChannelList()
     gm.postMessage(channels)
