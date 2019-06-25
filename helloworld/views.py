@@ -29,7 +29,7 @@ class HomePageView(TemplateView):
                                 send_channel = channel['id']
                                 break
                         if send_channel:
-                            client.chat_postMessage(channel=send_channel, text=params[1])
+                            client.chat_postMessage(channel=send_channel, text=params[1], as_user=True)
                             rs = params[1]
                         else:
                             rs = "invalid channel" 
