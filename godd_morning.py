@@ -8,7 +8,7 @@ class GoodMornig:
 
     def postMessage(self, channels):
         for channel in channels:
-            self.client.chat_postMessage(channel=channel, text="おはようございます")
+            self.client.chat_postMessage(channel=channel, text="おはようございます", as_user=True)
 
     def belongChannelList(self):
         channel_ids = []

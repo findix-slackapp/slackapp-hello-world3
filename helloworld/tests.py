@@ -43,7 +43,7 @@ class HelloWorldTestCase(TestCase):
         channels = gm.belongChannelList()
         gm.postMessage(channels)
 
-        client.chat_postMessage.assert_called_with(channel="CHXS0FH5M",text="おはようございます")
+        client.chat_postMessage.assert_called_with(channel="CHXS0FH5M",text="おはようございます",as_user=True)
 
     def test_post_return_no_user(self):
         data = {}
@@ -104,4 +104,4 @@ class HelloWorldTestCase(TestCase):
         self.assertEqual(response.get('content-type'), 'text/plain')
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'test')
-        client.chat_postMessage.assert_called_with(channel="CHXS0FH5M",text="test")
+        client.chat_postMessage.assert_called_with(channel="CHXS0FH5M",text="test",as_user=True)
