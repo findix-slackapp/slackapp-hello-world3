@@ -3,6 +3,7 @@ from helloworld.views import HomePageView
 from unittest import mock
 import slackbot.dispatcher
 import plugins.hello
+import plugins.thanks
 
 class HelloWorldTestCase(TestCase):
 
@@ -26,10 +27,14 @@ class HelloWorldTestCase(TestCase):
         excepted = 'おはようございます:smile:'
         self.assert_called_massage_reply(body, excepted)
 
+    def test_mention_func_thanks(self):
+        body = {'text': 'ありがとう'}
+        excepted = 'どういたしまして:smile:'
+        self.assert_called_massage_reply(body, excepted)
+        
     def assert_called_massage_reply(self, body, excepted):
         message = slackbot.dispatcher.Message(None, body)
         message.reply = mock.MagicMock()
         plugins.hello.mention_func(message)
 
         message.reply.assert_called_with(excepted)
-
