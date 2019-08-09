@@ -24,14 +24,14 @@ if __name__ == "__main__":
     thread_1 = threading.Thread(target=main)
     thread_1.start()
 
-    print('start good morning')
-    schedule.every().monday.at("00:00").do(goodMorning)
-    schedule.every().tuesday.at("00:00").do(goodMorning)
-    schedule.every().wednesday.at("00:00").do(goodMorning)
-    schedule.every().thursday.at("00:00").do(goodMorning)
-    schedule.every().friday.at("00:00").do(goodMorning)
+    # print('start good morning')
+    # schedule.every().monday.at("00:00").do(goodMorning)
+    # schedule.every().tuesday.at("00:00").do(goodMorning)
+    # schedule.every().wednesday.at("00:00").do(goodMorning)
+    # schedule.every().thursday.at("00:00").do(goodMorning)
+    # schedule.every().friday.at("00:00").do(goodMorning)
 
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(1)
 

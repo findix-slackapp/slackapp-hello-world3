@@ -36,14 +36,14 @@ class HelloWorldTestCase(TestCase):
 
         message.reply.assert_called_with(excepted)
 
-    def test_good_morning_postMessage(self):
-        gm = GoodMornig()
-        client = gm.client
-        client.chat_postMessage = mock.MagicMock()
-        channels = gm.belongChannelList()
-        gm.postMessage(channels)
+    # def test_good_morning_postMessage(self):
+    #     gm = GoodMornig()
+    #     client = gm.client
+    #     client.chat_postMessage = mock.MagicMock()
+    #     channels = gm.belongChannelList()
+    #     gm.postMessage(channels)
 
-        client.chat_postMessage.assert_called_with(channel="CHXS0FH5M",text="おはようございます",as_user=True)
+    #     client.chat_postMessage.assert_called_with(channel="CHXS0FH5M",text="おはようございます",as_user=True)
 
     def test_post_return_no_user(self):
         data = {}
