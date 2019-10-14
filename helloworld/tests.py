@@ -39,6 +39,7 @@ class HelloWorldTestCase(TestCase):
         message = slackbot.dispatcher.Message(None, body)
         message.reply = mock.MagicMock()
         plugins.hello.mention_func(message)
+        plugins.thanks.mention_func_thanks(message)
 
         message.reply.assert_called_with(excepted)
 
