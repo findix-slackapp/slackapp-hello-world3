@@ -21,7 +21,7 @@ import re
 # message.react('icon_emoji')  発言者のメッセージにリアクション(スタンプ)する
 #                               文字列中に':'はいらない
 @respond_to('.*')
-def mention_func_thanks(message):
+def mention_func(message):
     m = re.match(r"^\S*ありがとう\S*$", message.body['text'])
     if m:
         message.reply('どういたしまして:smile:') # メンション
