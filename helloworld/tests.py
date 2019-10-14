@@ -24,21 +24,33 @@ class HelloWorldTestCase(TestCase):
         body = {'text': 'hi'}
         excepted = 'Hello World!'
         self.assert_called_massage_reply(body, excepted)
+        self.assert_called_massage_reply_thanks(body, excepted)
 
     def test_mention_func_greeting(self):
         body = {'text': 'おはよう'}
         excepted = 'おはようございます:smile:'
         self.assert_called_massage_reply(body, excepted)
 
-    def test_mention_func_thanks(self):
-        body = {'text': 'ありがとう'}
-        excepted = 'どういたしまして:smile:'
-        self.assert_called_massage_reply(body, excepted)
-
     def assert_called_massage_reply(self, body, excepted):
         message = slackbot.dispatcher.Message(None, body)
         message.reply = mock.MagicMock()
         plugins.hello.mention_func(message)
+
+        message.reply.assert_called_with(excepted)
+
+    def test_mention_func_thanks(self):
+        body = {'text': 'ありがとう'}
+        excepted = 'どういたしまして:smile:'
+        self.assert_called_massage_reply_thanks(body, excepted)
+
+    def test_mention_func_thank_you(self):
+        body = {'text': 'ありがとうございます'}
+        excepted = 'どういたしまして:smile:'
+        self.assert_called_massage_reply_thanks(body, excepted)
+
+    def assert_called_massage_reply_thanks(self, body, excepted):
+        message = slackbot.dispatcher.Message(None, body)
+        message.reply = mock.MagicMock()
         plugins.thanks.mention_func(message)
 
         message.reply.assert_called_with(excepted)
