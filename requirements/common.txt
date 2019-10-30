@@ -1,5 +1,5 @@
 # dependencies common to all environments
-Django==1.11.20
+Django==1.11.23
 slackbot
 boto3
 schedule
