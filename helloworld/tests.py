@@ -24,7 +24,6 @@ class HelloWorldTestCase(TestCase):
         body = {'text': 'hi'}
         excepted = 'Hello World!'
         self.assert_called_massage_reply(body, excepted)
-        self.assert_called_massage_reply_thanks(body, excepted)
 
     def test_mention_func_greeting(self):
         body = {'text': 'おはよう'}

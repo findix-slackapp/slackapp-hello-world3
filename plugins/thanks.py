@@ -27,8 +27,3 @@ def mention_func(message):
         message.reply('どういたしまして:smile:') # メンション
     else:
         message.reply('Hello World!') # メンション
-
-@listen_to('ありがとう')
-def listen_func_thanks(message):
-    message.send('Hi') # ただの投稿
-    message.reply('Are you？')   # メンション
