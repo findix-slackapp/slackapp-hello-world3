@@ -22,8 +22,11 @@ import re
 #                               文字列中に':'はいらない
 @respond_to('.*')
 def mention_func(message):
-    m = re.match(r"^\S*おはよう\S*$", message.body['text'])
-    if m:
+    m_hello = re.match(r"^\S*こんにちは|こんにちわ\S*$", message.body['text'])
+    m_gm = re.match(r"^\S*おはよう\S*$", message.body['text'])
+    if m_hello:
+        message.reply('こんにちは! :hand:')
+    elif m_gm:
         message.reply('おはようございます:smile:') # メンション
     else:
         message.reply('Hello World!') # メンション
