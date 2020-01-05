@@ -19,11 +19,11 @@ import re
 # message.reply('string')   @発言者名: string でメッセージを送信
 # message.send('string')    string を送信
 # message.react('icon_emoji')  発言者のメッセージにリアクション(スタンプ)する
-#                               文字列中に':'はいらない
+#                              文字列中に':'はいらない
 @respond_to('.*')
 def mention_func(message):
     m = re.match(r"^\S*ありがとう\S*$", message.body['text'])
     if m:
-        message.reply('どういたしまして:smile:') # メンション
+        message.reply('どういたしまして') # メンション
     else:
         message.reply('Hello World!') # メンション
