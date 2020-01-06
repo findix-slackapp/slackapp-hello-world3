@@ -39,12 +39,12 @@ class HelloWorldTestCase(TestCase):
 
     def test_mention_func_thanks(self):
         body = {'text': 'ありがとう'}
-        excepted = 'どういたしまして:smile:'
+        excepted = 'どういたしまして'
         self.assert_called_massage_reply_thanks(body, excepted)
 
     def test_mention_func_thank_you(self):
         body = {'text': 'ありがとうございます'}
-        excepted = 'どういたしまして:smile:'
+        excepted = 'どういたしまして'
         self.assert_called_massage_reply_thanks(body, excepted)
 
     def assert_called_massage_reply_thanks(self, body, excepted):
